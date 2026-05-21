@@ -2,17 +2,25 @@ import pandas as pd
 from utils import *
 
 
-def tratar_nulos(df, coluna, funcao):
-    if funcao == 1:
-        return apagar_linhas(df=df, coluna=coluna)
-    elif funcao == 2:
-        return apagar_coluna(df=df, coluna=coluna)
-    elif funcao == 3:
-        return preencher_media(df=df, coluna=coluna)
-    elif funcao == 4:
-        return preencher_mediana(df=df, coluna=coluna)
-    elif funcao == 5:
-        return preencher_moda(df=df, coluna=coluna)
+def tratar_nulos(df, coluna, estrategia):
+
+    if estrategia == 'remover_linhas':
+        return apagar_linhas(df, coluna)
+
+    elif estrategia == 'remover_coluna':
+        return apagar_coluna(df, coluna)
+
+    elif estrategia == 'media':
+        return preencher_media(df, coluna)
+
+    elif estrategia == 'mediana':
+        return preencher_mediana(df, coluna)
+
+    elif estrategia == 'moda':
+        return preencher_moda(df, coluna)
+
+    else:
+        raise ValueError('Estratégia inválida.')
 
 
 def apagar_linhas(df, coluna):
