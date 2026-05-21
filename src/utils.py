@@ -1,12 +1,6 @@
 import pandas as pd
 
 def carregar_csv(caminho, sep=';'):
-    df = pd.read_csv(caminho)
+    df = pd.read_csv(caminho, delimiter=sep)
     return df
 
-
-caminho = '../data/raw/telecon.csv'
-df = carregar_csv(caminho)
-
-
-df.head()
